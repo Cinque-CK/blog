@@ -2,7 +2,7 @@ const config = {
     dbConf: {
         host: 'cinque-ck.com',
         port: '',
-        username: 'root',
+        username: 'Cinque',
         password: '',
         database: 'blog',
         dialect: 'mysql'
