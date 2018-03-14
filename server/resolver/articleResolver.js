@@ -1,5 +1,5 @@
 const { graphql, GraphQLSchema, GraphQLObjectType, GraphQLString, GraphQLID, GraphQLList, GraphQLNonNull, isOutputType, GraphQLInt } = require('graphql');
-const { userModel } = require('../model');
+const { articleModel } = require('../model');
 
 const articleType = new GraphQLObjectType({
     name: 'article',
@@ -7,31 +7,44 @@ const articleType = new GraphQLObjectType({
         id: {
             type: GraphQLID
         },
-        name: {
+        title: {
             type: GraphQLString
         },
-        avatar: {
+        cover: {
             type: GraphQLString
         },
-        email: {
+        keywords: {
             type: GraphQLString
         },
-        role: {
+        content: {
+            type: GraphQLInt
+        },
+        author: {
+            type: GraphQLObjectType
+        },
+        type: {
+            type: GraphQLInt
+        },
+        views: {
+            type: GraphQLInt
+        },
+        createdAt: {
             type: GraphQLInt
         }
+
     }
 });
 
-const allUsers = {
-    type: new GraphQLList(userType),
+const allArticles = {
+    type: new GraphQLList(articleType),
     args: {},
     resolve(root, params, options) {
-        return userModel.findAll({ where: params });
+        return articleModel.findAll();
     }
 };
 
-const user = {
-    type: userType,
+const article = {
+    type: articleType,
     args: {
         id: {
             name: 'id',
@@ -39,8 +52,8 @@ const user = {
         }
     },
     resolve(root, params, options) {
-        return userModel.find({ where: params });
+        return articleModel.find({ where: params });
     }
 }
 
-module.exports = {allUsers, user};
+module.exports = {allArticles, article};

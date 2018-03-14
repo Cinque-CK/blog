@@ -2,7 +2,7 @@ var Sequelize = require('sequelize');
 const {defineModel} = require('../util/modelUtil');
 
 const articleModel = defineModel(
-    'user',
+    'article',
     {
         title: { type: Sequelize.STRING },
         cover: { type: Sequelize.STRING},
@@ -13,4 +13,4 @@ const articleModel = defineModel(
         views: { type: Sequelize.INTEGER}
     }
 );
-module.exports = userModel;
+module.exports = articleModel;

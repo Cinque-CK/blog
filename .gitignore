@@ -58,3 +58,7 @@ server/.yarn-integrity
 # dotenv environment variables file
 server/.env
 
+
+# COMMON
+.vscode
+
