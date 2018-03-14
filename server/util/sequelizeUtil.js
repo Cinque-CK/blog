@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const { dbConf: { host, port, username, password, database, dialect } } = require('../config');
 
-const db = new Sequelize(database, username, password, {
+const sequelizeUtil = new Sequelize(database, username, password, {
     host: host,
     port: port,
     dialect: dialect,
@@ -14,7 +14,7 @@ const db = new Sequelize(database, username, password, {
     }
 });
 
-db
+sequelizeUtil
     .authenticate()
     .then(() => {
         console.log('Connection has been established successfully.');
@@ -23,4 +23,4 @@ db
         console.error('Unable to connect to the database:', err);
     });
 
-module.exports = db;
+module.exports = sequelizeUtil;

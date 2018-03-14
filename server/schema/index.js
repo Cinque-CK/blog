@@ -1,11 +1,13 @@
 const { GraphQLSchema, GraphQLObjectType } = require('graphql');
-const { userResolver: { users } } = require('../resolver');
+const resolver = require('../resolver');
 
-module.exports = new GraphQLSchema({
+const schema = new GraphQLSchema({
     query: new GraphQLObjectType({
-        name: 'userQuery',
+        name: 'Queries',
         fields: {
-            users
+            ...resolver
         }
     })
 });
+
+module.exports = schema;

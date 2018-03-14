@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const uuidV4 = require('uuid/v4');
 
-const db = require('./dbUtil');
+const sequelizeUtil = require('./sequelizeUtil');
 
 const defineModel = function(name, attributes) {
     let attrs = {};
@@ -35,7 +35,7 @@ const defineModel = function(name, attributes) {
         type: Sequelize.BIGINT,
         allowNull: false
     };
-    return db.define(name, attrs, {
+    const model = sequelizeUtil.define(name, attrs, {
         tableName: name,
         timestamps: false,
         hooks: {
@@ -55,6 +55,7 @@ const defineModel = function(name, attributes) {
             }
         }
     });
+    return sequelizeUtil.models[name];
 };
 
 const modelUtil = {
@@ -62,7 +63,7 @@ const modelUtil = {
     sync: () => {
         // only allow create ddl in non-production environment:
         if (process.env.NODE_ENV !== 'production') {
-            db.sync({ force: true });
+            sequelizeUtil.sync({ force: true });
         } else {
             throw new Error("Cannot sync() when NODE_ENV is set to 'production'.");
         }

@@ -1,8 +1,8 @@
 const { graphql, GraphQLSchema, GraphQLObjectType, GraphQLString, GraphQLID, GraphQLList, GraphQLNonNull, isOutputType, GraphQLInt } = require('graphql');
 const { userModel } = require('../model');
 
-const userType = new GraphQLObjectType({
-    name: 'user',
+const articleType = new GraphQLObjectType({
+    name: 'article',
     fields: {
         id: {
             type: GraphQLID

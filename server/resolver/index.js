@@ -1,5 +1,6 @@
-const userResolver = require('./userResolver')
+const userResolver = require('./userResolver');
+const articleResolver = require('./')
 
-module.exports = {
-    userResolver
-}
+const resolver = {...userResolver}
+
+module.exports = resolver;
