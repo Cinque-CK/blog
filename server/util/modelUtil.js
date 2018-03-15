@@ -35,7 +35,11 @@ const defineModel = function(name, attributes) {
         type: Sequelize.BIGINT,
         allowNull: false
     };
-    const model = sequelizeUtil.define(name, attrs, {
+    attrs.status = {
+        type: Sequelize.INTEGER,
+        allowNull: false
+    };
+    return sequelizeUtil.define(name, attrs, {
         tableName: name,
         timestamps: false,
         hooks: {
@@ -48,6 +52,7 @@ const defineModel = function(name, attributes) {
                     obj.createdAt = now;
                     obj.updatedAt = now;
                     obj.version = 0;
+                    obj.status = 1;
                 } else {
                     obj.updatedAt = Date.now();
                     obj.version++;
@@ -55,7 +60,6 @@ const defineModel = function(name, attributes) {
             }
         }
     });
-    return sequelizeUtil.models[name];
 };
 
 const modelUtil = {

@@ -2,7 +2,7 @@ const router = require('koa-router')();
 const { graphqlKoa, graphiqlKoa } = require('apollo-server-koa');
 
 const userRoute = require('./userRoute');
-const schema = require('../schema')
+const schema = require('../graphql/schema')
 module.exports = app => {
     userRoute(router);
 
