@@ -27,7 +27,6 @@ module.exports = {
                 use: [
                     {
                         loader: 'file-loader',
-                        options: {}
                     }
                 ]
             },
@@ -44,6 +43,7 @@ module.exports = {
         })
     ],
     devServer: {
-        port: 3001
+        port: 3001,
+        historyApiFallback: true
     }
 };
