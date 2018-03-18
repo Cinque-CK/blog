@@ -21,7 +21,6 @@ const App = ({ store }) => (
                     }
                 />
                 <Route path="/login" component={Login} />
-
                 <Route path="/home" component={Home} />
             </Switch>
         </BrowserRouter>
