@@ -35,8 +35,8 @@ const articleMutations = {
                 type: new GraphQLNonNull(articleInputType)
             }
         },
-        resolve: async (root, params, options) => {
-            const result = await articleModel.create(params, options).catch(e => e.throw(500));
+        resolve: async (root, {input}, options) => {
+            const result = await articleModel.create(input, options).catch(e => e.throw(500));
             return result;
         }
     }

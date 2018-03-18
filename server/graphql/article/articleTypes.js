@@ -1,5 +1,4 @@
 const { GraphQLString, GraphQLID, GraphQLNonNull, GraphQLInt, GraphQLInputObjectType, GraphQLObjectType } = require('graphql');
-const {userType} = require('../user/userTypes')
 const articleType = new GraphQLObjectType({
     name: 'articleType',
     description: 'Article type definition',
@@ -14,10 +13,10 @@ const articleType = new GraphQLObjectType({
             type: GraphQLString
         },
         content: {
-            type: GraphQLInt
+            type: GraphQLString
         },
-        author: {
-            type: userType
+        authorId: {
+            type: GraphQLID
         },
         type: {
             type: GraphQLInt
@@ -30,11 +29,30 @@ const articleType = new GraphQLObjectType({
 
 const articleInputType = new GraphQLInputObjectType({
     name: 'articleInputType',
-    description: 'Article type definition',
+    description: 'Article payload definition',
     fields: {
         title: {
             type: new GraphQLNonNull(GraphQLString)
+        },
+        cover: {
+            type: GraphQLString
+        },
+        keywords: {
+            type: GraphQLString
+        },
+        content: {
+            type: GraphQLString
+        },
+        authorId: {
+            type:  new GraphQLNonNull(GraphQLID)
+        },
+        type: {
+            type:  new GraphQLNonNull(GraphQLInt)
+        },
+        views: {
+            type:  new GraphQLNonNull(GraphQLInt)
         }
+        
     }
 })
 
