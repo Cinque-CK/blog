@@ -20,19 +20,18 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: [{ loader: 'style-loader' }, { loader: 'css-loader' }]
+                use: [
+                    { loader: 'style-loader' }, 
+                    { loader: 'css-loader' }
+                ]
             },
             {
-                test: /\.(png|jpg|gif)$/,
+                test: /\.(png|jpg|gif|eot|svg|ttf|woff|woff2)$/,
                 use: [
                     {
                         loader: 'file-loader',
                     }
                 ]
-            },
-            {
-                test: /\.css$/,
-                use: [{ loader: 'style-loader' }, { loader: 'css-loader' }]
             }
         ]
     },

@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Route, Switch, Link, Redirect } from 'react-router-dom';
 
+import Header from '../../components/common/header'
 import User from './user';
 import Article from './article';
 
@@ -15,14 +16,15 @@ class Home extends React.Component {
         const { match } = this.props;
         return (
             <div>
-                <ul>
-                    <li>
-                        <Link to={`${match.url}/user`}>User</Link>
-                    </li>
-                    <li>
-                        <Link to={`${match.url}/article`}>Article</Link>
-                    </li>
-                </ul>
+                <Header />
+                <div className="body">
+                    <div>
+                        
+                    </div>
+                    <div>
+
+                    </div>
+                </div>
                 <Route path={`${match.url}/user`} component={User} />
                 <Route path={`${match.url}/article`} component={Article} />
             </div>
