@@ -1,36 +1,44 @@
 {
-  "name": "blog-server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "dependencies": {
-    "apollo-server-koa": "^1.3.2",
-    "graphql": "^0.13.1",
-    "graphql-tools": "^2.22.0",
-    "jsonwebtoken": "^8.2.0",
-    "koa": "^2.5.0",
-    "koa-bodyparser": "^4.2.0",
-    "koa-router": "^7.4.0",
-    "mysql": "^2.15.0",
-    "mysql2": "^1.5.2",
-    "sequelize": "^4.36.0",
-    "uuid": "^3.2.1",
-    "validator": "^9.4.1"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Cinque-CK/blog-server.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Cinque-CK/blog-server/issues"
-  },
-  "homepage": "https://github.com/Cinque-CK/blog-server#readme"
+    "name": "blog-server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "dependencies": {
+        "jsonwebtoken": "^8.2.0",
+        "koa": "^2.5.0",
+        "koa-bodyparser": "^4.2.0",
+        "koa-router": "^7.4.0",
+        "mysql": "^2.15.0",
+        "mysql2": "^1.5.2",
+        "sequelize": "^4.36.0",
+        "uuid": "^3.2.1",
+        "validator": "^9.4.1"
+    },
+    "devDependencies": {
+        "@types/koa": "^2.0.46",
+        "nodemon": "^1.17.5",
+        "ts-node": "^7.0.0",
+        "tslint": "^5.10.0",
+        "typescript": "^2.9.2"
+    },
+    "scripts": {
+        "start": "npm run server",
+        "serve": "node dist/server.js",
+        "build": "npm run tslint && npm run build-ts",
+        "build-ts": "tsc",
+        "watch": "npm run tslint && npm run watch-ts",
+        "watch-ts": "tsc -w",
+        "tslint": "tslint -c tslint.json -p tsconfig.json"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Cinque-CK/blog.git"
+    },
+    "keywords": [],
+    "author": "Cinque",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Cinque-CK/blog/issues"
+    },
+    "homepage": "https://github.com/Cinque-CK/blog#readme"
 }

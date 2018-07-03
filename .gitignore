@@ -187,6 +187,6 @@ client/.yarn-integrity
 client/.env
 
 
-# COMMON
+# vscode configuration
 .vscode
 
