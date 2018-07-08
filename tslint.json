@@ -28,7 +28,6 @@
         "no-internal-module": true,
         "no-trailing-whitespace": true,
         "no-null-keyword": true,
-        "prefer-const": false,
         "jsdoc-format": true
     }
 }

@@ -15,7 +15,11 @@
         "validator": "^9.4.1"
     },
     "devDependencies": {
+        "@types/jsonwebtoken": "^7.2.8",
         "@types/koa": "^2.0.46",
+        "@types/koa-bodyparser": "^5.0.0",
+        "@types/koa-router": "^7.0.30",
+        "@types/validator": "^9.4.1",
         "nodemon": "^1.17.5",
         "ts-node": "^7.0.0",
         "tslint": "^5.10.0",
