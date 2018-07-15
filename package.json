@@ -4,12 +4,17 @@
     "description": "",
     "main": "server.js",
     "dependencies": {
+        "@babel/core": "^7.0.0-beta.53",
+        "@zeit/next-typescript": "^1.1.0",
         "jsonwebtoken": "^8.2.0",
         "koa": "^2.5.0",
         "koa-bodyparser": "^4.2.0",
         "koa-router": "^7.4.0",
         "mysql": "^2.15.0",
         "mysql2": "^1.5.2",
+        "next": "^6.1.1",
+        "react": "^16.4.1",
+        "react-dom": "^16.4.1",
         "sequelize": "^4.36.0",
         "uuid": "^3.2.1",
         "validator": "^9.4.1"
@@ -19,6 +24,8 @@
         "@types/koa": "^2.0.46",
         "@types/koa-bodyparser": "^5.0.0",
         "@types/koa-router": "^7.0.30",
+        "@types/next": "^6.0.4",
+        "@types/react": "^16.4.6",
         "@types/validator": "^9.4.1",
         "nodemon": "^1.17.5",
         "ts-node": "^7.0.0",
@@ -26,6 +33,7 @@
         "typescript": "^2.9.2"
     },
     "scripts": {
+        "dev": "nodemon server/index.ts",
         "start": "npm run server",
         "serve": "node dist/server.js",
         "build": "npm run tslint && npm run build-ts",

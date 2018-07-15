@@ -3,7 +3,7 @@ const modelUtil = require('../util/modelUtil');
 
 const files = fs.readdirSync(__dirname + '/');
 
-const js_files = files.filter(f => {
+const js_files = files.filter((f: string) => {
     return f.endsWith('.js');
 }, files);
 
