@@ -77,3 +77,6 @@ typings/
 
 # ts output
 dist/
+
+# secrets
+server/config/

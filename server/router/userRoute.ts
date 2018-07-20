@@ -1,5 +1,5 @@
 import Router from 'koa-router';
-import userController from '../controller/userController';
+import UserController from '../controller/userController';
 export default function (router: Router, next) {
     router.get('/blog', async ctx => {
         await next.render(ctx.req, ctx.res, '/blog', ctx.query)
@@ -15,7 +15,7 @@ export default function (router: Router, next) {
           ctx.respond = false
     })
 
-    router.get('/user', userController.getUsers);
-    router.post('/user/register', userController.register);
-    router.post('/user/login', userController.login);
+    // router.get('/user', UserController.getUsers);
+    router.post('/user/register', UserController.register);
+    // router.post('/user/login', UserController.login);
 }

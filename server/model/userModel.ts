@@ -1,12 +1,21 @@
-const Sequelize = require('sequelize');
-const { defineModel } = require('../util/modelUtil');
+import query from '../util/mysqlUtil';
+class UserModel {
+    public static insertData (value: any[]) {
+        const sql = 'insert into user set name=?,password=?,email=?,avatar=?,role=?,last_login_at=?,create_at=?,status=?;';
+        console.log(sql)
+        return query(sql, value)
+    }
 
-const userModel = defineModel('user', {
-    name: { type: Sequelize.STRING, field: 'name', allowNull: false },
-    password: { type: Sequelize.STRING, field: 'password', allowNull: false },
-    email: { type: Sequelize.STRING, field: 'email', allowNull: false },
-    avatar: { type: Sequelize.BOLB, field: 'avatar' },
-    role: { type: Sequelize.INTEGER, field: 'role', allowNull: false },
-    lastLoginAt: { type: Sequelize.BIGINT, field: 'last_login_at' }
-});
-export default userModel;
+    public static findDataAny (condition: any){
+        let whereClause:string = 'where 0=1';
+        for(let prop in condition){
+            if(condition.hasOwnProperty(prop)){
+                whereClause += ` or ${prop}="${condition[prop]}"`
+            }
+        }
+        const sql = whereClause ==='where 0=1' ? 'select * from user' : `select * from user ${whereClause};`;
+        return query( sql )
+    }
+}
+
+export default UserModel;
