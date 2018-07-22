@@ -1,6 +1,11 @@
 import Router from 'koa-router';
 import UserController from '../controller/userController';
 export default function (router: Router, next) {
+    router.get('/login',  async ctx => {
+        await next.render(ctx.req, ctx.res, '/login', ctx.query)
+          ctx.respond = false
+    })
+
     router.get('/blog', async ctx => {
         await next.render(ctx.req, ctx.res, '/blog', ctx.query)
           ctx.respond = false
@@ -15,7 +20,7 @@ export default function (router: Router, next) {
           ctx.respond = false
     })
 
-    // router.get('/user', UserController.getUsers);
+    router.get('/user', UserController.getUsers);
     router.post('/user/register', UserController.register);
-    // router.post('/user/login', UserController.login);
+    router.post('/user/login', UserController.login);
 }
