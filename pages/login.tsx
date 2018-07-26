@@ -1,15 +1,23 @@
-import * as classnames from 'classnames';
 import * as React from 'react';
-import { setToken } from './utils/storageUtil';
-// import './login.css';
-interface IHomeRouterProps {
+import * as classnames from 'classnames';
+import { setToken } from '../utils/storageUtil';
+import ApiUtil from '../utils/apiUtil';
+import ApiConst from '../consts/apiConst';
+const { postJSON } = ApiUtil;
+const {USER_LOGIN} = ApiConst;
+interface IProps {
     history: any;
 }
-class Login extends React.Component<IHomeRouterProps> {
-    constructor(props: IHomeRouterProps) {
+interface IState {
+    name: string,
+    password: string,
+    showForm: boolean
+}
+class Login extends React.Component<IProps,IState> {
+    constructor(props: IProps) {
         super(props);
         this.state = {
-            userName: '',
+            name: '',
             password: '',
             showForm: true
         };
@@ -21,7 +29,7 @@ class Login extends React.Component<IHomeRouterProps> {
                 <div className={classnames('form-wrap', { vanished: !state.showForm })}>
                     <div className="form-item input">
                         <span>Username:</span>
-                        <input value={state.userName} onChange={this.onInputChange.bind(this, 'userName')} />
+                        <input value={state.name} onChange={this.onInputChange.bind(this, 'name')} />
                     </div>
                     <div className="form-item input">
                         <span>Password:</span>
@@ -32,6 +40,7 @@ class Login extends React.Component<IHomeRouterProps> {
                         ——— <button onClick={this.onLoginClick}>LOGIN</button> ———
                     </div>
                 </div>
+
                 <style jsx>{`
                     .login-page {
                         position: relative;
@@ -116,12 +125,19 @@ class Login extends React.Component<IHomeRouterProps> {
     }
 
     private onInputChange = (fieldName: string, e: React.ChangeEvent<HTMLInputElement>): void => {
-        this.setState({
+        const state:any = {
             [fieldName]: e.target.value
-        });
+        }
+        this.setState(state);
     };
 
     private onLoginClick = (): void => {
+        const {name, password} = this.state;
+        postJSON(USER_LOGIN, {name, password}, res => {
+            
+        }, err => {
+
+        })
         setToken('12345');
         this.setState({
             showForm: false

@@ -1,0 +1,11 @@
+html,
+body,
+#__next {
+    height: 100%;
+}
+
+/** layout **/
+.page {
+    height: 100%;
+    overflow: hidden;
+}

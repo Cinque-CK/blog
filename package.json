@@ -18,7 +18,8 @@
         "react": "^16.4.1",
         "react-dom": "^16.4.1",
         "uuid": "^3.2.1",
-        "validator": "^9.4.1"
+        "validator": "^9.4.1",
+        "whatwg-fetch": "^2.0.4"
     },
     "devDependencies": {
         "@types/classnames": "^2.2.6",
@@ -30,6 +31,7 @@
         "@types/next": "^6.0.4",
         "@types/react": "^16.4.6",
         "@types/validator": "^9.4.1",
+        "@types/whatwg-fetch": "0.0.33",
         "moment": "^2.22.2",
         "nodemon": "^1.17.5",
         "ts-node": "^7.0.0",
